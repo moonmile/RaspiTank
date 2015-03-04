@@ -14,8 +14,28 @@ Raspberry pi に mono/fsharp をインストールして利用します。
 - [Raspberry Pi 2 に F# をインストールする](http://www.moonmile.net/blog/archives/6870 "Raspberry Pi 2 に F# をインストールする | Moonmile Solutions Blog")
 
 Windows 上で RaspiRobotNet をビルドした後、実行ファイル等を RPi にコピーします。
-RPi 上でビルドできるような Makefile は後で作成します。
 
+```
+git clone https://github.com/moonmile/RaspiTank
+cd RaspiTank/RaspiRobot
+xbuild
+```
+RaspiTank/RaspiRobot/bin/Debug/RaspiRobot.exe が実行ファイルです。
+
+- 実は Windows 上でビルドした *.exe/dll を Raspberry Pi にコピーしただけでも実行できます。
+
+
+# 実行の仕方
+
+PS3 Dualshock3 の Bluetooth を受信させる
+```
+sixad -start &
+```
+
+プログラムは /etc/input/js0 をアクセスさせるため sudo で実行します。
+```
+sudo bin/Debug/RaspiRobot.exe
+```
 
 # 参照先
 
